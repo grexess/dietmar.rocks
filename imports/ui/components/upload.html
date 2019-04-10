@@ -1,0 +1,39 @@
+<template name="upload">
+
+    <p class="w3-padding-16"><button id="btnAddCard" onClick="document.getElementById('id01').style.display = 'block'" class="w3-button w3-black">MemoryCard hinzufügen</button>
+    </p>
+
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+      <div class="w3-center"><br>
+        <span class="w3-button w3-xlarge w3-hover-red w3-display-topright closeModal" title="Close Modal">&times;</span>
+        <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+      </div>
+
+      <form class="w3-container" action="/action_page.php">
+        <div class="w3-section">
+          <label><b>Von wem?</b></label>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" id="name" required>
+          <label><b>Magst Du eine e-Mail hinterlassen? </b></label>
+          <input class="w3-input w3-border" type="email" placeholder="Deine eMail-Adresse" id="email">
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Header" id="title" required>
+          <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Text" id="msg" required>
+          <input type="text"   name="cloudinaryFileName" placeholder="Dein Erinnerungsfoto">
+          <input type="hidden" name="cloudinaryUrl" disabled="true">
+          <input type="hidden" name="cloudinaryThumbnail" disabled="true">
+          <button class="w3-button" id="cloudinary-upload-widget">
+              Foto Auswählen
+            </button>
+          <button id="addMemo" class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Alle Gute Dietmar!</button>
+          
+        </div>
+      </form>
+
+      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+        <button type="button" class="w3-button w3-red closeModal">Ne doch nicht <div class=""></div></button>
+      </div>
+
+    </div>
+  </div>
+</template>
