@@ -34,4 +34,8 @@ ImageData.schema = new SimpleSchema({
     label: 'thumbnail',
     type: String,
   },
+  pwd: {
+    label: 'thumbnail',
+    type: String,
+  },
 }, { tracker: Tracker });

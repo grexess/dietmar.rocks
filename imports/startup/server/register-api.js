@@ -3,5 +3,5 @@
 import { ImageData } from '/imports/api/imagedata';
 
 Meteor.publish('ImageData', function publishImageData() {
-  return ImageData.find();
+  return ImageData.find({}, {fields: {pwd: 0, email: 0}});
 });

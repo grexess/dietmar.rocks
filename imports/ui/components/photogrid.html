@@ -1,24 +1,77 @@
 <template name="photogrid">
 
   <!-- Photo Grid -->
-<div class="w3-row" id="myGrid" style="margin-bottom:128px">
-  <div class="w3-third">
-      {{#each memoriesCol1}}
-      <img src="{{url}}" style="width:100%">
-      {{/each}}
-  </div>
+  <div class="w3-row" id="myGrid">
+    <div class="w3-third">
+      {{#each memoriesCol1 }}
 
-  <div class="w3-third">
+      <div class="outer">
+        <div class="inner">
+          <img src="{{url}}" alt="img09" />
+          <div class="figcaption">
+            <h2><span>{{name}}</span></h2>
+            <p><b>{{title}}</b><br>{{msg}}</p>
+            <a href="#">View more</a>
+          </div>
+        </div>
+      </div>
+      {{#if showDelBtn }}
+      <i class="delBtn w3-right fa fa-trash-o fa-2x" data-pic="{{_id}}"></i>
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div class="w3-third">
       {{#each memoriesCol2}}
-      <img src="{{url}}" style="width:100%">
+      <div class="outer">
+        <div class="inner">
+          <img src="{{url}}" alt="img09" />
+          <div class="figcaption">
+            <h2><span>{{name}}</span></h2>
+            <p><b>{{title}}</b><br>{{msg}}</p>
+            <a href="#">View more</a>
+          </div>
+        </div>
+      </div>
       {{/each}}
-  </div>
+    </div>
 
-  <div class="w3-third">
+    <div class="w3-third">
       {{#each memoriesCol3}}
-      <img src="{{url}}" style="width:100%">
+      <div class="outer">
+        <div class="inner">
+          <img src="{{url}}" alt="img09" />
+          <div class="figcaption">
+            <h2><span>{{name}}</span></h2>
+            <p><b>{{title}}</b><br>{{msg}}</p>
+            <a href="#">View more</a>
+          </div>
+        </div>
+      </div>
       {{/each}}
+    </div>
   </div>
-</div>
 
+  <div id="delPic" class="w3-modal">
+    <div class="w3-modal-content">
+      <header class="w3-container w3-red">
+        <span onclick="document.getElementById('id01').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+        <h2>Memo löschen</h2>
+      </header>
+      <div class="w3-panel">
+        <div class="w3-container">Um das Memo zu löschen, musst Du das Löschpasswort eingeben</div>
+        <div class="w3-row w3-container w3-margin-bottom">
+          <div class="w3-half w3-container">
+            <input id="delPwd" class="w3-input w3-border" type="password">
+          </div>
+          <div class="w3-half w3-container">
+            <button type="button" class="w3-button w3-red closeModal">
+              <i class="fa fa-times" style="margin:5px"></i>Löschen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

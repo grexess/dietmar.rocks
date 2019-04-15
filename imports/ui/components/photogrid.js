@@ -8,17 +8,35 @@ import {
 Template.photogrid.helpers({
 
     memoriesCol1() {
-        var images = ImageData.find({}).fetch();
-        return images.filter((_, i) => i % 3 == 0);
+        return getNthImages(0);
     },
     memoriesCol2() {
-        var images = ImageData.find({}).fetch();
-        const every_nth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
-        every_nth(images, 2)
+        return getNthImages(1);
     },
     memoriesCol3() {
-        var images = ImageData.find({}).fetch();
-        return images.filter((_, i) => i % 5 == 0);
+        return getNthImages(2);
+    },
+    showDelBtn() {
+        return Session.get('showDelBtn');
     }
-
 });
+
+
+Template.photogrid.events({
+
+    'click .delBtn'(event) {
+        event.preventDefault();
+        $('#delPic').show();
+        //alert(event.currentTarget.dataset.pic);
+    }
+})
+
+function getNthImages(start) {
+    var images = ImageData.find({}).fetch();
+    var aImages = [];
+    while (start < images.length) {
+        aImages.push(images[start]);
+        start = start + 3;
+    }
+    return aImages;
+}

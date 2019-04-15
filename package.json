@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
+    "cloudinary": "^1.14.0",
     "meteor-node-stubs": "^0.4.1",
     "simpl-schema": "^1.5.5"
   },
