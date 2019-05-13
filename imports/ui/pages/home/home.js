@@ -8,5 +8,7 @@ import '../../components/footer.js';
 import { ImageData, ImageDataSchema } from '/imports/api/imagedata';
 
 Template.App_home.onCreated(function onCreated() {
-    this.subscribe('ImageData');
+    
+  this.subscribe('ImageData');
+
   });
