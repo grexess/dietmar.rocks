@@ -1,7 +1,8 @@
 <template name="upload">
 
-  <div id="addBtnArea" class="txtSmall w3-center memoRow">Du bist der Beste und alle hier gratulieren <b>Dir</b> mit einem
-    Foto-Erinnerungs-Memo <a href="#" class="memoButton">Memo hinzufügen</a>
+  <div id="addBtnArea" class="txtSmall w3-center memoRow">Du bist der Beste und alle hier gratulieren <b>Dir</b> mit
+    einem
+    Foto-Erinnerungs-Memo <a href="#" id="memoButton" class="okayButton">Memo hinzufügen</a>
   </div>
 
   <!-- <p id="addBtnArea"><button class="headerBtn w3-hover-green" id="btnAddCard"><i class="fa fa-child fa-2x"
@@ -11,24 +12,29 @@
   <div id="id01" style="display:none" class="w3-margin">
     <div class="w3-card-4">
 
-      <span class="w3-button w3-xlarge w3-hover-red w3-right closeModal" title="Close Modal">&times;</span>
+      <a class="escButton w3-margin w3-right closeMemo" href="#"><i class="fa fa-times"
+          style="margin:5px"></i></a>
+      <!--  <span class="w3-button w3-xlarge w3-hover-red w3-right closeModal" title="Close Modal">&times;</span>-->
 
       <div class="w3-row">
 
         <div class="w3-panel w3-third">
-          <div class="w3-leftbar w3-border-blue w3-left w3-margin-bottom w3-text-blue">
+
+          <div id="nameLabel" class="w3-left w3-margin-bottom textMainColorRed">
             <label class="w3-margin-left"><b>Von wem?<sup>*</sup></b></label>
           </div>
           <input class="w3-input w3-border" type="text" placeholder="Dein Gratulantenname" id="name" maxlength="30"
             title="Erforderlich, max. 30 Zeichen ...">
-          <div class="w3-leftbar w3-border-blue w3-left w3-margin-bottom w3-margin-top w3-text-blue">
+
+          <div id="emailLabel" class="w3-left w3-margin-bottom w3-margin-top textMainColorGreen">
             <label class="w3-margin-left"><b>Magst Du eine e-Mail hinterlassen?</b><sup><span
                   data-tooltip="Die sieht nur der Dietmar für eine evtl. Antwort."><i class="fa fa-question-circle-o"
                     style="margin-left:8px"></i></span></sup></label>
           </div>
           <input class="w3-input w3-border" type="email" placeholder="Deine eMail-Adresse" id="email" maxlength="30"
             title="max 30 Zeichen ...">
-          <div class="w3-leftbar w3-border-blue w3-left w3-margin-bottom w3-margin-top w3-text-blue">
+
+          <div id="pwdLabel" class="borderLeft w3-left w3-margin-bottom w3-margin-top textMainColorRed">
             <label class="w3-margin-left"><b>Passwort zum Löschen<sup>*<span
                     data-tooltip="Das braucht Ihr zum Löschen des Memos!"><i class="fa fa-question-circle-o"
                       style="margin-left:8px"></i></span></sup></b></label>
@@ -37,12 +43,14 @@
             title="max 30 Zeichen ..." required>
         </div>
 
-        <div class="w3-third">
-          <img src="/img/avatar.jpg" id="thumbnail" alt="Avatar" style="height:250px" class="w3-margin-top">
-          <div class="w3-margin-top">
-            <button class="w3-button w3-blue" id="cloudinary-upload-widget"><i class="fa fa-child"></i>Foto
-              auswählen</button>
+        <div class="w3-third w3-center">
+          <div class="w3-margin-top w3-center">
+            <a id="cloudinary-upload-widget" class="redButton w3-margin" href="#"><i class="fa fa-check"
+                style="margin:5px"></i>Foto
+              auswählen</a>
           </div>
+          <img src="/img/avatar.jpg" id="thumbnail" alt="Avatar" style="height:250px" class="w3-margin-top">
+
           <input type="hidden" name="cloudinaryUrl" disabled="true">
           <input type="hidden" name="cloudinaryThumbnail" disabled="true">
           <input class="w3-input w3-border" type="hidden" name="cloudinaryFileName" id="cloudinaryFileName"
@@ -50,12 +58,14 @@
         </div>
 
         <div class="w3-panel w3-third">
-          <div class="w3-leftbar w3-border-blue w3-left w3-margin-bottom w3-text-blue">
+
+          <div id="titleLabel" class="borderLeft w3-left w3-margin-bottom textMainColorRed">
             <label class="w3-margin-left"><b>Memo Titel<sup>*</sup></b></label>
           </div>
           <input class="w3-input w3-border" type="text" placeholder="Bildüberschrift" id="title" required maxlength="30"
             title="max 30 Zeichen ...">
-          <div class="w3-leftbar w3-border-blue w3-left w3-margin-bottom w3-margin-top w3-text-blue">
+
+          <div class="borderLeft w3-left w3-margin-bottom w3-margin-top textMainColorGreen">
             <label class="w3-margin-left"><b>Memo Text</b></label>
           </div>
           <textarea rows="3" cols="30" class="w3-input w3-border" id="msg" maxlength="200"
@@ -64,15 +74,14 @@
         </div>
       </div>
 
-      <div class="w3-row">
-        <div class="w3-panel w3-half">
-          <button id="addMemo" class="w3-button w3-block w3-green w3-disabled" type="submit"><i
-              class="fa fa-birthday-cake" style="margin:5px"></i>Alle Gute Dietmar!</button>
-        </div>
-        <div class="w3-panel w3-half">
-          <button type="button" class="w3-button w3-red closeModal"><i class="fa fa-times" style="margin:5px"></i>Ne
-            doch nicht</button>
-        </div>
+      <div class="w3-center w3-padding">
+
+        <a id="addMemo" class="disabledButton w3-margin" href="#"><i class="fa fa-check" style="margin:5px"></i>Alles
+          Gute
+          Dietmar!</a>
+        <br>
+        <a class="escButton w3-margin closeMemo" href="#"><i class="fa fa-times" style="margin:5px"></i>Ne
+          doch nicht</a>
       </div>
     </div>
   </div>

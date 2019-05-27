@@ -26,9 +26,13 @@ Template.photogrid.events({
 
     'click .delBtn'(event) {
         event.preventDefault();
-        $('#delPic').show();
-        //alert(event.currentTarget.dataset.pic);
-    }
+        alert(event.currentTarget);
+    },
+
+    'click .figcaption>a' (event) {
+        event.preventDefault();
+    },
+
 })
 
 function getNthImages(start) {

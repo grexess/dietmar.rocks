@@ -1,6 +1,6 @@
 <template name="photogrid">
 
-    <div class="contentGrid">
+  <div class="contentGrid">
     <!-- Photo Grid -->
     <div class="w3-row" id="myGrid">
       <div class="w3-third">
@@ -17,7 +17,12 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <i class="delBtn w3-right fa fa-trash-o fa-2x" data-pic="{{_id}}"></i>
+        <div class="w3-margin">
+          <div class="w3-container w3-cell w3-cell-middle"><input id="delPwd" class="w3-input w3-border"
+              placeholder="Dein Löschpasswort" type="password"></div>
+          <div class="w3-container w3-cell w3-cell-middle"><a class="delBtn w3-bar-item redButton w3-margin" href="#"><i
+                class="fa fa-trash-o fa-2x" style="margin:5px" data-pic="{{_id}}"></i></a></div>
+        </div>
         {{/if}}
         {{/each}}
       </div>
@@ -35,7 +40,8 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <i class="delBtn w3-right fa fa-trash-o fa-2x" data-pic="{{_id}}"></i>
+        <a class="redButton w3-margin" href="#"><i class="fa fa-trash-o fa-2x" style="margin:5px"
+            data-pic="{{_id}}"></i></a>
         {{/if}}
         {{/each}}
       </div>
@@ -53,33 +59,10 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <i class="delBtn w3-right fa fa-trash-o fa-2x" data-pic="{{_id}}"></i>
+        <a class="redButton w3-margin" href="#"><i class="fa fa-trash-o fa-2x" style="margin:5px"
+            data-pic="{{_id}}"></i></a>
         {{/if}}
         {{/each}}
-      </div>
-      
-    </div>
-
-    <div id="delPic" class="w3-modal">
-      <div class="w3-modal-content">
-        <header class="w3-container w3-red">
-          <span onclick="document.getElementById('id01').style.display='none'"
-            class="w3-button w3-display-topright">&times;</span>
-          <h2>Memo löschen</h2>
-        </header>
-        <div class="w3-panel">
-          <div class="w3-container">Um das Memo zu löschen, musst Du das Löschpasswort eingeben</div>
-          <div class="w3-row w3-container w3-margin-bottom">
-            <div class="w3-half w3-container">
-              <input id="delPwd" class="w3-input w3-border" type="password">
-            </div>
-            <div class="w3-half w3-container">
-              <button type="button" class="w3-button w3-red closeModal">
-                <i class="fa fa-times" style="margin:5px"></i>Löschen
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>

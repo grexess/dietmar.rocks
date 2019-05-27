@@ -9,7 +9,7 @@ import {
 
 Template.upload.events({
 
-    'click .memoButton'(event, instance) {
+    'click #memoButton'(event, instance) {
         event.preventDefault();
 
         $("#addBtnArea").slideUp(1000, function () {
@@ -120,13 +120,15 @@ Template.upload.events({
 
     },
 
-    'click .closeModal': function click(event) {
+    'click .closeMemo': function click(event) {
 
         event.preventDefault();
 
         $("#id01").slideUp(1000, function () {
             $("#addBtnArea").slideDown(1000);
         });
+
+        window.scrollTo(0, 0);
 
         if (Session.get('public_id')) {
             Meteor.call('deleteImage', Session.get('public_id'), function (err, res) {
@@ -145,14 +147,57 @@ Template.upload.events({
 });
 
 function validateInput() {
-    if ($("#name").val().length == 0 || $("#name").val().length > 30) return false;
-    if ($("#email").val().length > 30) return false;
-    if ($("#name").val().length > 30) return false;
-    if ($("#title").val().length == 0 || $("#title").val().length > 30) return false;
-    if ($("#msg").val().length > 200) return false;
-    if ($("#cloudinaryFileName").val().length == 0 && $("#cloudinaryFileName").val().length > 100) return false;
-    if ($("#pwd").val().length == 0 || $("#pwd").val().length > 30) return false;
-    return true;
+
+    let isValid = true;
+
+    if ($("#name").val().length == 0 || $("#name").val().length > 30) {
+        $("#nameLabel").removeClass("textMainColorGreen").addClass("textMainColorRed");
+        isValid = false;
+    } else {
+        $("#nameLabel").removeClass("textMainColorRed").addClass("textMainColorGreen");
+    };
+
+    if ($("#email").val().length > 30) {
+        $("#emailLabel").removeClass("textMainColorGreen").addClass("textMainColorRed");
+        isValid = false;
+    } else {
+        $("#emailLabel").removeClass("textMainColorRed").addClass("textMainColorGreen");
+    };
+
+    if ($("#pwd").val().length == 0 || $("#pwd").val().length > 30) {
+        $("#pwdLabel").removeClass("textMainColorGreen").addClass("textMainColorRed");
+        isValid = false;
+    } else {
+        $("#pwdLabel").removeClass("textMainColorRed").addClass("textMainColorGreen");
+    };
+
+    if ($("#title").val().length == 0 || $("#title").val().length > 30) {
+        $("#titleLabel").removeClass("textMainColorGreen").addClass("textMainColorRed");
+        isValid = false;
+    } else {
+        $("#titleLabel").removeClass("textMainColorRed").addClass("textMainColorGreen");
+    };
+
+    if ($("#msg").val().length > 200) {
+        $("#msgLabel").removeClass("textMainColorGreen").addClass("textMainColorRed");
+        isValid = false;
+    } else {
+        $("#msgLabel").removeClass("textMainColorRed").addClass("textMainColorGreen");
+    };
+    if ($("#cloudinaryFileName").val().length == 0 || $("#cloudinaryFileName").val().length > 100) {
+        $("#cloudinary-upload-widget").removeClass("okayButton").addClass("redButton");
+        isValid = false;
+    } else {
+        $("#cloudinary-upload-widget").removeClass("redButton").addClass("okayButton");
+    };
+
+    if(isValid){
+        $("#addMemo").removeClass("disabledButton").addClass("okayButton");
+    }else{
+        $("#addMemo").removeClass("okayButton").addClass("disabledButton");
+    }
+
+    return isValid;
 }
 
 function htmlEscape(str) {

@@ -14,6 +14,15 @@
 @maincolor: rgb(111,149,85);
 @maincolorOpacity: rgba(111,149,85, 0.1);
 
+@redcolor: rgb(245,106,106);
+@redcolorOpacity: rgba(245,106,106, 0.1);
+
+@darkgraycolor: rgb(100, 95, 94);
+@darkgraycolorOpacity: rgba(100, 95, 94, 0.1);
+
+@graycolor: rgb(220,220,220);
+@graycolorOpacity: rgba(220,220,220, 0.1);
+
 .contentGrid{
     margin-left:auto;
     margin-right:auto;
@@ -37,3 +46,30 @@
 @media only screen and (min-width: 1200px) {
     
 }
+
+.escButton{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: transparent;
+    border-radius: 0.375em;
+    border: 0;
+    box-shadow: inset 0 0 0 2px @darkgraycolor;
+    color: @darkgraycolor !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 3.5em;
+    padding: 0 1.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  .escButton:hover {
+    background-color: @darkgraycolorOpacity;
+  }
