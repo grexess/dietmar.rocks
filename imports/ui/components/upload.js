@@ -9,7 +9,7 @@ import {
 
 Template.upload.events({
 
-    'click #btnAddCard'(event, instance) {
+    'click .memoButton'(event, instance) {
         event.preventDefault();
 
         $("#addBtnArea").slideUp(1000, function () {

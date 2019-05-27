@@ -67,3 +67,36 @@
     visibility: visible;
     opacity: 1;
   }
+
+  /* new version */
+  .memoRow{
+    margin-top: 1em;
+  }
+  
+  .memoButton{
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    -moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: transparent;
+    border-radius: 0.375em;
+    border: 0;
+    box-shadow: inset 0 0 0 2px @maincolor;
+    color: @maincolor
+     !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 700;
+    line-height: 3.5em;
+    padding: 0 1.25em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  
+  .memoButton:hover {
+    background-color: @maincolorOpacity;
+  }
