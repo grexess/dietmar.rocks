@@ -24,6 +24,7 @@ ecmascript-runtime@0.7.0
 ecmascript-runtime-client@0.8.0
 ecmascript-runtime-server@0.7.1
 ejson@1.1.0
+email@1.2.3
 es5-shim@4.8.0
 fetch@0.1.1
 fourseven:scss@4.10.0
@@ -43,6 +44,7 @@ less@2.8.0
 livedata@1.0.18
 lmieulet:meteor-coverage@1.1.4
 logging@1.1.20
+matdutour:popup-confirm@0.2.2
 meteor@1.9.3
 meteor-base@1.4.0
 meteorhacks:picker@1.0.3

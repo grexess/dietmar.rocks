@@ -4,7 +4,7 @@
     <!-- Photo Grid -->
     <div class="w3-row" id="myGrid">
       <div class="w3-third">
-        {{#each memoriesCol1 }}
+        {{#each memoriesCol 0 }}
 
         <div class="outer">
           <div class="inner">
@@ -17,18 +17,23 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <div class="w3-margin">
-          <div class="w3-container w3-cell w3-cell-middle"><input id="delPwd" class="w3-input w3-border"
-              placeholder="Dein Löschpasswort" type="password"></div>
-          <div class="w3-container w3-cell w3-cell-middle"><a class="delBtn w3-bar-item redButton w3-margin" href="#"><i
-                class="fa fa-trash-o fa-2x" style="margin:5px" data-pic="{{_id}}"></i></a></div>
+
+        <div class="w3-row w3-margin">
+          <div class="w3-col w3-margin" style="width:70px"><a data-picdelbtn="{{_id}}" class="delBtn disabledButton"
+              href="#">
+              <i class="fa fa-trash-o fa-2x w3-cell w3-cell-middle"></i>
+            </a></div>
+          <div class="w3-rest w3-margin">
+            <input data-pic="{{_id}}" class="w3-input w3-border delPwd" placeholder="Dein Löschpasswort"
+              type="password">
+          </div>
         </div>
         {{/if}}
         {{/each}}
       </div>
 
       <div class="w3-third">
-        {{#each memoriesCol2}}
+        {{#each memoriesCol 1}}
         <div class="outer">
           <div class="inner">
             <img src="{{url}}" alt="img09" />
@@ -40,14 +45,23 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <a class="redButton w3-margin" href="#"><i class="fa fa-trash-o fa-2x" style="margin:5px"
-            data-pic="{{_id}}"></i></a>
+
+        <div class="w3-row w3-margin">
+          <div class="w3-col w3-margin" style="width:70px"><a data-picdelbtn="{{_id}}" class="delBtn disabledButton"
+              href="#">
+              <i class="fa fa-trash-o fa-2x w3-cell w3-cell-middle"></i>
+            </a></div>
+          <div class="w3-rest w3-margin">
+            <input data-pic="{{_id}}" class="w3-input w3-border delPwd" placeholder="Dein Löschpasswort"
+              type="password">
+          </div>
+        </div>
         {{/if}}
         {{/each}}
       </div>
 
       <div class="w3-third">
-        {{#each memoriesCol3}}
+        {{#each memoriesCol 2}}
         <div class="outer">
           <div class="inner">
             <img src="{{url}}" alt="img09" />
@@ -59,8 +73,17 @@
           </div>
         </div>
         {{#if showDelBtn }}
-        <a class="redButton w3-margin" href="#"><i class="fa fa-trash-o fa-2x" style="margin:5px"
-            data-pic="{{_id}}"></i></a>
+
+        <div class="w3-row w3-margin">
+          <div class="w3-col w3-margin" style="width:70px"><a data-picdelbtn="{{_id}}" class="delBtn disabledButton"
+              href="#">
+              <i class="fa fa-trash-o fa-2x w3-cell w3-cell-middle"></i>
+            </a></div>
+          <div class="w3-rest w3-margin">
+            <input data-pic="{{_id}}" class="w3-input w3-border delPwd" placeholder="Dein Löschpasswort"
+              type="password">
+          </div>
+        </div>
         {{/if}}
         {{/each}}
       </div>

@@ -26,3 +26,5 @@ johanbrook:publication-collector  # Test a Meteor publication by collecting its 
 session
 themeteorchef:bert
 simple:reactive-method
+matdutour:popup-confirm
+email@1.2.3

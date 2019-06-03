@@ -19,12 +19,7 @@ Template.upload.events({
 
     'keyup input'(event) {
         event.preventDefault();
-
-        if (validateInput()) {
-            $("#addMemo").removeClass("w3-disabled");
-        } else {
-            $("#addMemo").addClass("w3-disabled");
-        }
+        validateInput();
     },
 
     'click #cloudinary-upload-widget': function click(event) {
@@ -46,10 +41,10 @@ Template.upload.events({
                 //cropping_aspect_ratio: 1,
                 croppingShowBackButton: true,
                 max_file_size: '5000000',
-                max_image_width: '2048',
-                max_image_height: '2048',
-                min_image_width: '600',
-                min_image_height: '600',
+                max_image_width: '1024',
+                max_image_height: '1024',
+                min_image_width: '512',
+                min_image_height: '512',
                 folder: 'dietmar',
                 croppingValidateDimensions: false
             },
@@ -73,6 +68,7 @@ Template.upload.events({
 
                 $("input[name='cloudinaryFileName']").val(fileName);
                 $("#thumbnail").attr("src", url).show();
+                debugger;
                 validateInput();
             });
     },
@@ -91,6 +87,7 @@ Template.upload.events({
                 pwd: crypto.createHash('sha256').update($('#pwd').val()).digest('hex'),
                 url: Session.get('url'),
                 thumbnail: Session.get('thumbnail'),
+                publicId: Session.get('public_id'),
                 createdAt: new Date(),
             }, function (error, result) {
                 if (error) console.log(error); //info about what went wrong
@@ -99,6 +96,10 @@ Template.upload.events({
                     $("#id01").slideUp(1000, function () {
                         $("#addBtnArea").slideDown(1000);
                     });
+
+                    deleteUploadIputFields();
+
+                    Meteor.call('sendEmail', htmlEscape($('#name').val()));
                 };
             });
         } else {
@@ -127,6 +128,8 @@ Template.upload.events({
         $("#id01").slideUp(1000, function () {
             $("#addBtnArea").slideDown(1000);
         });
+
+        deleteUploadIputFields();
 
         window.scrollTo(0, 0);
 
@@ -191,13 +194,20 @@ function validateInput() {
         $("#cloudinary-upload-widget").removeClass("redButton").addClass("okayButton");
     };
 
-    if(isValid){
+    if (isValid) {
         $("#addMemo").removeClass("disabledButton").addClass("okayButton");
-    }else{
+    } else {
         $("#addMemo").removeClass("okayButton").addClass("disabledButton");
     }
 
     return isValid;
+}
+
+function deleteUploadIputFields(){
+     $.each($("#id01").find('input'), function (index, value) {
+        $(value).val("");
+    });
+    $("#thumbnail").attr("src", "/img/avatar.jpg").show();
 }
 
 function htmlEscape(str) {

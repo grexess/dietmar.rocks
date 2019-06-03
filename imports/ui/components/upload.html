@@ -12,8 +12,7 @@
   <div id="id01" style="display:none" class="w3-margin">
     <div class="w3-card-4">
 
-      <a class="escButton w3-margin w3-right closeMemo" href="#"><i class="fa fa-times"
-          style="margin:5px"></i></a>
+      <a class="escButton w3-margin w3-right closeMemo" href="#"><i class="fa fa-times" style="margin:5px"></i></a>
       <!--  <span class="w3-button w3-xlarge w3-hover-red w3-right closeModal" title="Close Modal">&times;</span>-->
 
       <div class="w3-row">
@@ -49,7 +48,11 @@
                 style="margin:5px"></i>Foto
               auswählen</a>
           </div>
-          <img src="/img/avatar.jpg" id="thumbnail" alt="Avatar" style="height:250px" class="w3-margin-top">
+
+          <div class="previewcontainer">
+            <img src="/img/avatar.jpg" id="thumbnail" alt="Avatar" style="height:250px" class="w3-margin-top">
+            <div class="previewcentered">Von wem?<br>Memo Titel<br>Memo Text</div>
+          </div>
 
           <input type="hidden" name="cloudinaryUrl" disabled="true">
           <input type="hidden" name="cloudinaryThumbnail" disabled="true">
